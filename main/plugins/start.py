@@ -1,5 +1,5 @@
 import pymongo
-from .. import bot as gagan
+from .. import bot as gagan, MONGODB_CONNECTION_STRING, OWNER_ID
 from telethon import events, Button
 from pyrogram import Client, filters
 from telethon.tl.types import DocumentAttributeVideo
@@ -23,10 +23,6 @@ from .. import Bot as app
 from main.plugins.helpers import screenshot
 from pyrogram import Client, filters
 import subprocess
-
-MONGODB_CONNECTION_STRING = "mongodb+srv://ggn:ggn@ggn.upuljx5.mongodb.net/?retryWrites=true&w=majority&appName=ggn"
-OWNER_ID = 7065117445 # edit this
-LOG_GROUP = -1001878947221 # edit this
 
 # MongoDB database name and collection name
 DB_NAME = "start_users"
@@ -61,8 +57,8 @@ async def start(event):
     collection.update_one({"user_id": user_id}, {"$set": {"user_id": user_id}}, upsert=True)
     # Creating inline keyboard with one button
     buttons = [
-        [Button.url("Join Channel", url="https://t.me/devggn")],
-        [Button.url("Contact Me", url="https://t.me/ggnhere")],
+        [Button.url("Join Channel", url="https://t.me/tech_areeb")],
+        [Button.url("Contact Me", url="https://t.me/techareeb")],
     ]
     # Sending photo with caption and buttons
     await gagan.send_file(
@@ -103,7 +99,7 @@ async def broadcast(event):
     await progress_message.edit(f"Broadcast completed. Total users: {total_users}")
 
 def thumbnail(chat_id):
-    return f'{chat_id}.jpg' if os.path.exists(f'{chat_id}.jpg') else f'thumb.jpg'
+    return f'{chat_id}.jpg' if os.path.exists(f'{chat_id}.jpg') else f"https://i.ibb.co/tpcBzdJ/file-7.jpg"
     
 # Function to load registered user IDs and first names from the MongoDB collection
 def get_registered_users():
@@ -137,7 +133,7 @@ async def get_registered_users_command(event):
     os.remove(filename)  # Remove the temporary file after sending
 
 S = "/start"
-START_PIC = "https://graph.org/file/1dfb96bd8f00a7c05f164.gif"
+START_PIC = "https://i.ibb.co/2k0LXCk/file-6.jpg"
 TEXT = "Send me the Link of any message of Restricted Channels to Clone it here.\nFor private channel's messages, send the Invite Link first.\n\n👉🏻 Execute /batch for bulk process upto 10K files range."
 
 @gagan.on(events.NewMessage(func=lambda event: event.photo))
@@ -165,8 +161,8 @@ async def remove_thumbnail(event):
 
 
 M = "/plan"
-PREMIUM_PIC = "plan.png"
-PRE_TEXT = """💰 **Premium Price**: Starting from $2 or 200 INR accepted via **__Amazon Gift Card__** (terms and conditions apply).
+PREMIUM_PIC = "https://i.ibb.co/tpcBzdJ/file-7.jpg"
+PRE_TEXT = """💰 **Premium Price**: Starting from $2 or 200 Pkr accepted via **Biance** (terms and conditions apply).
 📥 **Download Limit**: Users can download up to 100 files in a single batch command.
 🛑 **Batch**: You will get two modes /bulk and /batch.
    - Users are advised to wait for the process to automatically cancel before proceeding with any downloads or uploads.\n
@@ -177,7 +173,7 @@ PRE_TEXT = """💰 **Premium Price**: Starting from $2 or 200 INR accepted via *
 async def plan_command(event):
     # Creating inline keyboard with buttons
     buttons = [
-        [Button.url("Send Gift Card Code", url="https://t.me/ttonehelpbot")]
+        [Button.url("Send Payment", url="https://t.me/techareeb")]
     ]
 
     # Sending photo with caption and buttons
@@ -200,8 +196,8 @@ TERM_TEXT = """📜 **Terms and Conditions** 📜\n
 async def term_command(event):
     # Creating inline keyboard with buttons
     buttons = [
-        [Button.url("Query?", url="https://t.me/ttonehelpbot"),
-         Button.url("Channel", url="https://telegram.dog/devggn")]
+        [Button.url("Query?", url="https://t.me/techareeb"),
+         Button.url("Channel", url="https://telegram.dog/tech_areeb")]
     ]
 
     # Sending photo with caption and buttons
@@ -212,7 +208,7 @@ async def term_command(event):
         buttons=buttons
     )
 
-REPO_URL = "https://github.com/devgaganin/Save-Restricted-Content-Bot-Repo/"
+REPO_URL = "https://t.me/tech_areeb"
 
 HELP_TEXT = """Here are the available commands:
 
@@ -274,9 +270,7 @@ t = increase_timer_value (this sets the timer value to increase i.e after every 
 ```Use : /set b bt l t```
 
 Note: To set your custom thumbnail just sent photo/image without anycommand or else.
-
-[GitHub Repository](%s)
-""" % REPO_URL
+"""
 
 
 @gagan.on(events.NewMessage(pattern='/help'))
@@ -285,7 +279,7 @@ async def help_command(event):
     Command to display help message
     """
     # Creating inline keyboard with a button linking to the GitHub repository
-    buttons = [[Button.url("REPO", url=REPO_URL)]]
+    buttons = [[Button.url("Developer", url=f"https://t.me/techareeb")]]
 
     # Sending the help message with the GitHub repository button
     await event.respond(HELP_TEXT, buttons=buttons, link_preview=False)
@@ -350,7 +344,7 @@ async def youtube_dl_command(_, message):
 
             # Get video metadata
             metadata = video_metadata(original_file)
-            caption = f"{video_info['title']}\n\n__**Powered by [Advance Content Saver Bot](https://t.me/advance_content_saver_bot)**__"  # Set caption to the title of the video
+            caption = f"{video_info['title']}\n\n__**Powered by [Tech Areeb](https://t.me/techareeb)**__"  # Set caption to the title of the video
             
             # Send the video file and thumbnail
             ggn = message.chat.id
