@@ -26,9 +26,9 @@ logger = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 logging.getLogger("telethon").setLevel(logging.WARNING)
 
-MONGODB_CONNECTION_STRING = "mongodb+srv://ggn:ggn@ggn.upuljx5.mongodb.net/?retryWrites=true&w=majority&appName=ggn"
-OWNER_ID = 7065117445 # edit this
-LOG_GROUP = -1001878947221 # edit this
+MONGODB_CONNECTION_STRING = "mongodb+srv://ahmedmuiz182:oVNPxjqj0eTPFtda@cluster0.s0jyoca.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+OWNER_ID = 6334683599 # edit this
+LOG_GROUP = -1002226236875 # edit this
 
 # MongoDB database name and collection name
 DB_NAME = "authors"
@@ -195,7 +195,7 @@ async def _batch(event):
             save_batch_data(batch_data)
 
             cd = await conv.send_message("**Batch process ongoing...**\n\nChunks processed: 0", 
-                                    buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                                    buttons=[[Button.url("Join Channel", url="http://t.me/tech_areeb")]])
             co, is_canceled = await run_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
@@ -268,7 +268,7 @@ async def set_command_handler(event):
             "timer_increase_value": timer_increase_value
         }
 
-        response = f"Settings saved successfully!\n\nBatch Size: {batch_size}\nBase Timer: {base_timer}\nTimer Increase Threshold: {timer_increase_threshold}\nTimer Increase Value: {timer_increase_value}\n\nPowered by **__Team SPY__**"
+        response = f"Settings saved successfully!\n\nBatch Size: {batch_size}\nBase Timer: {base_timer}\nTimer Increase Threshold: {timer_increase_threshold}\nTimer Increase Value: {timer_increase_value}\n\nPowered by **__Tech Areeb__**"
         return await event.respond(response)
 
     # Your validation checks go here
@@ -296,7 +296,7 @@ async def set_command_handler(event):
         "timer_increase_value": timer_increase_value
     }
 
-    response = f"Settings saved successfully!\n\nBatch Size: {batch_size}\nBase Timer: {base_timer}\nTimer Increase Threshold: {timer_increase_threshold}\nTimer Increase Value: {timer_increase_value}\n\nPowered by **__Team SPY__**"
+    response = f"Settings saved successfully!\n\nBatch Size: {batch_size}\nBase Timer: {base_timer}\nTimer Increase Threshold: {timer_increase_threshold}\nTimer Increase Value: {timer_increase_value}\n\nPowered by **__Tech Areeb__**"
     await event.respond(response)
 
 
@@ -379,11 +379,11 @@ async def run_batch(userbot, client, sender, countdown, link):
                         logger.info(e)
                         if countdown.text != count_down:
                             await countdown.edit(count_down,
-                                                 buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                                                 buttons=[[Button.url("Join Channel", url="http://t.me/tech_areeb")]])
             except Exception as e:
                 if countdown.text != count_down:
                     await countdown.edit(count_down,
-                                         buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                                         buttons=[[Button.url("Join Channel", url="https://t.me/tech_areeb")]])
 
         # Wait for all tasks in the chunk to complete
         await asyncio.gather(*chunk_tasks[str(sender)])
@@ -394,7 +394,7 @@ async def run_batch(userbot, client, sender, countdown, link):
             sleep_message = f"Sleeping for {current_timer} seconds before processing the next batch."
             sleep_msg = await client.send_message(sender, sleep_message)
             # Edit countdown message to show processed value only
-            await countdown.edit(f"**Batch process ongoing...**\n\nProcessed: {processed_ids} Links", buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+            await countdown.edit(f"**Batch process ongoing...**\n\nProcessed: {processed_ids} Links", buttons=[[Button.url("Join Channel", url="http://t.me/tech_areeb")]])
 
             try:
                 await asyncio.sleep(current_timer)  # Sleep for the current timer value
@@ -428,7 +428,7 @@ async def download_and_unzip(user_id, bot_token, session, event):
         zip_ref.extractall(user_folder)
 
     init_file_content = f"""
-#Join @devggn
+#Join @tech_areeb
 
 from pyrogram import Client
 from telethon.sessions import StringSession
@@ -442,12 +442,12 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 logging.getLogger("telethon").setLevel(logging.WARNING)
 
 # variables
-API_ID = "19748984" #config("API_ID", default=None, cast=int)
-API_HASH = "2141e30f96dfbd8c46fbb5ff4b197004" #config("API_HASH", default=None)
+API_ID = "23253265" #config("API_ID", default=None, cast=int)
+API_HASH = "848061e2a1d25c569a7722f708174e0d" #config("API_HASH", default=None)
 BOT_TOKEN = "{bot_token}"
 SESSION = "{session}"
-FORCESUB = "save_restricted_content_bots" #config("FORCESUB", default=None)
-AUTH = "6964148334" #config("AUTH", default=None)
+FORCESUB = "tech_areeb" #config("FORCESUB", default=None)
+AUTH = "6334683599" #config("AUTH", default=None)
 SUDO_USERS = []
 
 if len(AUTH) != 0:
@@ -466,7 +466,7 @@ userbot = Client("myacc",api_id=API_ID,api_hash=API_HASH,session_string=SESSION)
 try:
     userbot.start()
 except BaseException:
-    print("Your session expired please re add that... thanks @devggn.")
+    print("Your session expired please re add that... thanks @tech_areeb.")
     sys.exit(1)
 
 Bot = Client(
@@ -596,7 +596,7 @@ async def _bulk(event):
             save_batch_data(batch_data)
 
             cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed: ", 
-                                    buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                                    buttons=[[Button.url("Join Channel", url="http://t.me/tech_areeb")]])
             co = await r_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
@@ -644,7 +644,7 @@ async def r_batch(userbot, client, sender, countdown, link):
             await get_bulk_msg(userbot, client, sender, link, integer)
             protection = await client.send_message(sender, f"Sleeping for `{timer}` seconds to avoid Floodwaits and Protect account!")
             await countdown.edit(count_down, 
-                                 buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                                 buttons=[[Button.url("Join Channel", url="https://t.me/tech_areeb")]])
             await asyncio.sleep(timer)
             await protection.delete()
         except IndexError as ie:
@@ -666,12 +666,12 @@ async def r_batch(userbot, client, sender, countdown, link):
                 except Exception as e:
                     logger.info(e)
                     if countdown.text != count_down:
-                        await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                        await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="http://t.me/tech_areeb")]])
         except Exception as e:
             #logger.info(e)
             #await client.send_message(sender, f"An error occurred during cloning, batch will continue.\n\n**Error:** {str(e)}")
             if countdown.text != count_down:
-                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/tech_areeb")]])
         n = i + 1
         if n == len(ids_data[str(sender)]):
             return -2
@@ -693,8 +693,8 @@ async def run_main_py(user_id, session_string):
 from pyrogram import Client, filters
 
 # Your API ID, API HASH, and String Session
-API_ID = 23536615
-API_HASH = "0731650e848c3791823e19eee62b891c"
+API_ID = 23253265
+API_HASH = "848061e2a1d25c569a7722f708174e0d"
 STRING_SESSION = "{session_string}"
 # Create a Pyrogram Client
 app = Client(
