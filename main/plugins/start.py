@@ -27,6 +27,7 @@ import subprocess
 # MongoDB database name and collection name
 DB_NAME = "start_users"
 COLLECTION_NAME = "registered_users_collection"
+MONGODB_CONNECTION_STRING = "mongodb+srv://ahmedmuiz182:oVNPxjqj0eTPFtda@cluster0.s0jyoca.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Establish a connection to MongoDB
 mongo_client = pymongo.MongoClient(MONGODB_CONNECTION_STRING)
