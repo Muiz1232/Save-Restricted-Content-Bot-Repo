@@ -19,9 +19,9 @@ logger = logging.getLogger(__name__)
 logging.getLogger("pyrogram").setLevel(logging.INFO)
 logging.getLogger("telethon").setLevel(logging.INFO)
 
-MONGODB_CONNECTION_STRING = "mongodb+srv://ggn:ggn@ggn.upuljx5.mongodb.net/?retryWrites=true&w=majority&appName=ggn" #edit this
-OWNER_ID = 7065117445 # edit this
-LOG_GROUP = -1001878947221 #edit this
+MONGODB_CONNECTION_STRING = "mongodb+srv://ahmedmuiz182:oVNPxjqj0eTPFtda@cluster0.s0jyoca.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" #edit this
+OWNER_ID = 6334683599 # edit this
+LOG_GROUP = -1002226236875 #edit this
 
 # MongoDB database name and collection name
 DB_NAME = "smart_users"
@@ -77,7 +77,7 @@ async def copy_message_with_chat_id(client, sender, chat_id, message_id):
         for word, replace_word in replacements.items():
             final_caption = final_caption.replace(word, replace_word)
         
-        caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Team SPY](https://t.me/devggn)**__"
+        caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Tech Areeb](https://t.me/tech_areeb)**__"
         
         if msg.media:
             if msg.media == MessageMediaType.VIDEO:
@@ -150,7 +150,7 @@ async def send_video_with_chat_id(client, sender, path, caption, duration, hi, w
             progress=progress_for_pyrogram,
             progress_args=(
                 client,
-                '**__Uploading: [Team SPY](https://t.me/devggn)__**\n ',
+                '**__Uploading: [Tech Areeb](https://t.me/tech_areeb)__**\n ',
                 upm,
                 time.time()
             )
@@ -177,7 +177,7 @@ async def send_document_with_chat_id(client, sender, path, caption, thumb_path, 
             progress=progress_for_pyrogram,
             progress_args=(
                 client,
-                '**__Uploading:__**\n**__Bot made by [Team SPY](https://t.me/devggn)__**',
+                '**__Uploading:__**\n**__Bot made by [Tech Areeb](https://t.me/tech_areeb)__**',
                 upm,
                 time.time()
             )
@@ -354,7 +354,7 @@ async def set_rename_command(user_id, custom_rename_tag):
 # Function to get the user's custom renaming preference
 def get_user_rename_preference(user_id):
     # Retrieve the user's custom renaming tag if set, or default to '@devggn'
-    return user_rename_preferences.get(str(user_id), '@devggn')
+    return user_rename_preferences.get(str(user_id), '@techareeb')
 
 # Function to set custom caption preference
 async def set_caption_command(user_id, custom_caption):
@@ -483,8 +483,8 @@ async def del_session_command_handler(event):
         await event.respond("No session found for the user.")
 
 
-API_ID = "19748984" 
-API_HASH = "2141e30f96dfbd8c46fbb5ff4b197004"
+API_ID = "23253265" 
+API_HASH = "848061e2a1d25c569a7722f708174e0d"
 
 async def check(userbot, client, link, event):
     logging.info(link)
@@ -526,7 +526,7 @@ async def check(userbot, client, link, event):
         except Exception as e:
             logging.error(e)
             # If user_bot instance fails, fall back to using userbot
-            return False, "Bot is not there add your session to save without link or send invite link...\n\nTo generate session you can use our official bot - @stringsessionAK47bot.."
+            return False, "Bot is not there add your session to save without link or send invite link...\n\nTo generate session you can use our official bot - @StringGenFatherBot.."
     else:
         try:
             chat = str(link.split("/")[-2])
@@ -639,10 +639,10 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
             edit = await client.edit_message_text(sender, edit_id, "Trying to Download.")
             user_session = user_sessions.get(sender)
             if user_session:
-              file = await user_bot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Team SPY](https://t.me/devggn)__**\n ", edit, time.time()))
+              file = await user_bot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Tech Areeb](https://t.me/tech_areeb)__**\n ", edit, time.time()))
               await user_bot.stop()
             else:
-              file = await userbot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Team SPY](https://t.me/devggn)__**\n ", edit, time.time()))            # Retrieve user's custom renaming preference if set, default to '@devggn' otherwise
+              file = await userbot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Tech Areeb](https://t.me/tech_areeb)__**\n ", edit, time.time()))            # Retrieve user's custom renaming preference if set, default to '@devggn' otherwise
             custom_rename_tag = get_user_rename_preference(sender)
             # retriving name 
             last_dot_index = str(file).rfind('.')
@@ -703,7 +703,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                   final_caption = final_caption.replace(word, replace_word)  
                 # final_caption = re.sub(r'\s{2,}', '  ', final_caption.strip())
                 # final_caption = re.sub(r'\n{2,}', '\n\n', final_caption)
-                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Team SPY](https://t.me/devggn)**__"
+                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Tech Areeb](https://t.me/tech_areeb)**__"
                 await send_video_with_chat_id(client, sender, path, caption, duration, hi, wi, thumb_path, upm)
             elif str(file).split(".")[-1] in ['jpg', 'jpeg', 'png', 'webp']:
                 if file_n != '':
@@ -737,14 +737,14 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i, file_n):
                   final_caption = final_caption.replace(word, replace_word)  
                 # final_caption = re.sub(r'\s{2,}', '  ', final_caption.strip())
                 # final_caption = re.sub(r'\n{2,}', '\n\n', final_caption)
-                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Team SPY](https://t.me/devggn)**__"
+                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Tech Areeb](https://t.me/tech_areeb)**__"
                 await send_document_with_chat_id(client, sender, path, caption, thumb_path, upm)
                     
             os.remove(file)
             await upm.delete()
             return None
         except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
-            await client.edit_message_text(sender, edit_id, "Bot is not in that channel/group \nsend the invite or add session vioa command /addsession link so that bot can join the channel\n\nTo generate session you can use our official bot - @stringsessionAK47bot")
+            await client.edit_message_text(sender, edit_id, "Bot is not in that channel/group \nsend the invite or add session vioa command /addsession link so that bot can join the channel\n\nTo generate session you can use our official bot - @StringGenFatherBot")
             return None
     else:
         edit = await client.edit_message_text(sender, edit_id, "Cloning.")
@@ -834,7 +834,7 @@ async def x(userbot, client, sender, edit_id, msg_link, i, file_n):
                 progress=progress_for_pyrogram,
                 progress_args=(
                     client,
-                    "**__Unrestricting__: __[Team SPY](https://t.me/dev_gagan)__**\n ",
+                    "**__Unrestricting__: __[Tech Areeb](https://t.me/tech_areeb)__**\n ",
                     edit,
                     time.time()
                 )
@@ -875,7 +875,7 @@ async def x(userbot, client, sender, edit_id, msg_link, i, file_n):
                     logging.info(e)
                     thumb_path = None
                 
-                caption = f"{msg.caption}\n\n__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__" if msg.caption else "__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__"
+                caption = f"{msg.caption}\n\n__Unrestricted by **[Tech Areeb](https://t.me/tech_areeb)**__" if msg.caption else "__Unrestricted by **[Tech Areeb](https://t.me/tech_areeb)**__"
                 await send_video_with_chat_id(client, sender, path, caption, duration, hi, wi, thumb_path, upm)
             elif str(file).split(".")[-1] in ['jpg', 'jpeg', 'png', 'webp']:
                 if file_n != '':
@@ -889,7 +889,7 @@ async def x(userbot, client, sender, edit_id, msg_link, i, file_n):
                     file = path
 
                 
-                caption = f"{msg.caption}\n\n__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__" if msg.caption else "__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__"
+                caption = f"{msg.caption}\n\n__Unrestricted by **[Tech Areeb](https://t.me/tech_areeb)**__" if msg.caption else "__Unrestricted by **[Tech Areeb](https://t.me/tech_areeb)**__"
                 await upm.edit("__Uploading photo...__")
 
                 await bot.send_file(sender, path, caption=caption)
@@ -905,7 +905,7 @@ async def x(userbot, client, sender, edit_id, msg_link, i, file_n):
                     file = path
                 thumb_path = await screenshot(file, duration, sender)
                 
-                caption = f"{msg.caption}\n\n__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__" if msg.caption else "__Unrestricted by **[Team SPY](https://t.me/dev_gagan)**__"
+                caption = f"{msg.caption}\n\n__Unrestricted by **[Tech Areeb](https://t.me/tech_areeb)**__" if msg.caption else "__Unrestricted by **[Tech Areeb](https://t.me/tech_areeb)**__"
                 await send_document_with_chat_id(client, sender, path, caption, thumb_path, upm)
             os.remove(file)
             await upm.delete()
@@ -997,10 +997,10 @@ async def ggn_new(userbot, client, sender, edit_id, msg_link, i, file_n):
             edit = await client.edit_message_text(sender, edit_id, "Trying to Download.")
             user_session = user_sessions.get(sender)
             if user_session:
-              file = await user_bot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Team SPY](https://t.me/devggn)__**\n ", edit, time.time()))
+              file = await user_bot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Tech Areeb](https://t.me/tech_areeb)__**\n ", edit, time.time()))
               await user_bot.stop()
             else:
-              file = await userbot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Team SPY](https://t.me/devggn)__**\n ", edit, time.time()))            # Retrieve user's custom renaming preference if set, default to '@devggn' otherwise
+              file = await userbot.download_media(msg, progress=progress_for_pyrogram, progress_args=(client, "**__Unrestricting__: __[Tech Areeb](https://t.me/tech_areeb)__**\n ", edit, time.time()))            # Retrieve user's custom renaming preference if set, default to '@devggn' otherwise
             custom_rename_tag = get_user_rename_preference(sender)
             # retriving name 
             last_dot_index = str(file).rfind('.')
@@ -1061,7 +1061,7 @@ async def ggn_new(userbot, client, sender, edit_id, msg_link, i, file_n):
                   final_caption = final_caption.replace(word, replace_word)  
                 # final_caption = re.sub(r'\s{2,}', '  ', final_caption.strip())
                 # final_caption = re.sub(r'\n{2,}', '\n\n', final_caption)
-                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Team SPY](https://t.me/devggn)**__"
+                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Tech Areeb](https://t.me/tech_areeb)**__"
                 await send_video_with_chat_id(client, sender, path, caption, duration, hi, wi, thumb_path, upm)
             elif str(file).split(".")[-1] in ['jpg', 'jpeg', 'png', 'webp']:
                 if file_n != '':
@@ -1095,14 +1095,14 @@ async def ggn_new(userbot, client, sender, edit_id, msg_link, i, file_n):
                   final_caption = final_caption.replace(word, replace_word)  
                 # final_caption = re.sub(r'\s{2,}', '  ', final_caption.strip())
                 # final_caption = re.sub(r'\n{2,}', '\n\n', final_caption)
-                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Team SPY](https://t.me/devggn)**__"
+                caption = f"{final_caption}\n\n__**{custom_caption}**__" if custom_caption else f"{final_caption}\n\n__**[Tech Areeb](https://t.me/tech_areeb)**__"
                 await send_document_with_chat_id(client, sender, path, caption, thumb_path, upm)
                     
             os.remove(file)
             await upm.delete()
             return None
         except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
-            await client.edit_message_text(sender, edit_id, "Bot is not in that channel/group \nsend the invite or add session vioa command /addsession link so that bot can join the channel\n\nTo generate session you can use our official bot - @stringsessionAK47bot")
+            await client.edit_message_text(sender, edit_id, "Bot is not in that channel/group \nsend the invite or add session vioa command /addsession link so that bot can join the channel\nTo generate session you can use our official bot - @StringGenFatherBot")
             return None
     else:
         edit = await client.edit_message_text(sender, edit_id, "Cloning.")
