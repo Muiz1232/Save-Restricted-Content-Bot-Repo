@@ -248,12 +248,6 @@ No need to add -100 in the userid.
 
 ➡️ /cancel - Cancel ongoing batch process.
 
-➡️ /host - host your own Save Restricted Bot with all features available in this bot.
-
-```Use: /host BOT_TOKEN SESSION```
-
-➡️ /unhost - to unhost the hosted bots (remember this will unhost both bot at once if you hosted both bots)
-
 ➡️ /plan - View our plan details.
 
 ➡️ /terms - View our premium terms.
