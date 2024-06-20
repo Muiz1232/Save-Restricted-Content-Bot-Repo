@@ -1,5 +1,5 @@
 import pymongo
-from .. import bot as gagan, OWNER_ID
+from .. import bot as gagan
 from telethon import events, Button
 from pyrogram import Client, filters
 from telethon.tl.types import DocumentAttributeVideo
